@@ -2,59 +2,58 @@ package town;
 
 public abstract class Personnage {
 
-    private boolean permis;
-    private boolean velo;
-    private int nbArrestation = 0;
-    private int vie;
-    private int hydratation;
-    private int satiete;
-    private int moral;
-    private boolean maillot;
-    private int chanceDiplome;
+    //Moyen de deplacement
+    protected boolean permis;
+    protected boolean velo;
+    protected boolean maillot;
 
-    private String deplacement;
+    //Variables propre a l'instance du personnage a l'instant T
+    protected int vie;
+    protected int hydratation;
+    protected int satiete;
+    protected int moral;
 
+    //Variables fixes propre a la catégorie du personnage, définitive.
+    protected int maxVie;
+    protected int maxHydratation;
+    protected int maxSatiete;
+    protected int maxMoral;
+    protected int maxChance;
 
-    private int maxVie;
-    private int maxHydratation;
-    private int maxSatiete;
-    private int maxMoral;
+    //Position du personnage à l'instant T
+    protected Case casePersonnage;
 
+    //Autre variables
+    protected int chanceDiplome;
+    protected int nbDiplome = 0;
+    protected int nbArrestation = 0;
 
-    private int nbDiplome = 0;
-    private Personnage p;
-
-    public Personnage(String type, boolean permis, boolean velo)
+    public Personnage(boolean permis, boolean velo, boolean maillot)
     {
         this.permis = permis;
-        Personnage perso;
-        switch (type)
-        {
-            case "hippie":
-                this.p = new Hippie(permis, velo, maillot);
-            case "standard":
-                this.p = new Standard(permis, velo, maillot);
-            case "HommePresse" :
-                this.p = new HommePresse(permis, velo, maillot);
-            default:
-                this.p = new Standard(permis, velo, maillot);
-        }
+        this.velo = velo;
+        this.maillot = maillot;
     }
 
+    public boolean getPermis() { return permis; }
 
+    public boolean getVelo() { return velo; }
 
     public void incrementerDiplome()
     {
         this.nbDiplome += 1;
     }
 
+    public void incrementerChanceDiplome()
+    {
+        if()
+            this.chanceDiplome += 1;
+    }
+
     public void incrementerArrestation()
     {
         this.nbArrestation += 1;
     }
-
-
-
 
     public void updateValue(String barre, int valeur )
     {
@@ -88,20 +87,25 @@ public abstract class Personnage {
                 this.moral += valeur;
             }
         }
+        else if(barre.equals("chance"))
+        {
+            if(this.chanceDiplome+valeur <= maxChance )
+            {
+                this.chanceDiplome += valeur;
+            }
+        }
 
     }
 
-    public String getDeplacement()
+    public void setCase(Case c)
     {
-        return deplacement;
+        this.casePersonnage = c;
     }
 
-    public void setDeplacement(String deplacement)
+    public Case getCase()
     {
-        this.deplacement = deplacement;
+        return caseP;
     }
-
-
 
     public void mourir()
     {
