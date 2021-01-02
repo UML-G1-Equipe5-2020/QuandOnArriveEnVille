@@ -5,7 +5,7 @@ public abstract class Case {
     final abstract int colonne;
 
 
-    public abstract void suru();
+    public abstract void suru(Personnage pers);
     public abstract void deplacerPersonnage();
 
 }
