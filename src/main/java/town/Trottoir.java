@@ -1,8 +1,29 @@
 package town;
 
 public class Trottoir extends CaseDeDeplacement implements Piege{
+
+
+    public Trottoir() {
+        this.setModeDeplacement("Pied");
+    }
+
+    @Override
+    public void setModeDeplacement(String modeDeplacement) {
+        if(modeDeplacement == "Velo" || modeDeplacement == "Pied") {
+            super.setModeDeplacement(modeDeplacement);
+        }
+    }
+
+    @Override
+    public void changeModeDeplacement(String modeDeplacement) {
+        if(modeDeplacement == "Velo" || modeDeplacement == "Pied") {
+            super.changeModeDeplacement(modeDeplacement);
+        }
+    }
+
+
     public void suru(Personnage pers){
-        switch(pers.getDeplacement()){
+        switch(getModeDeplacement()){
             case "Pied":
                 pers.updateValue"hydratation", -10);
                 pers.updateValue("satiete", -10);
@@ -29,4 +50,5 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
             }
         }
     }
+
 }

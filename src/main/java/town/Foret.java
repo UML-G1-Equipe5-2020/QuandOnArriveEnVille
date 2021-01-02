@@ -1,8 +1,27 @@
 package town;
 
 public class Foret extends CaseDeDeplacement{
+
+    public Foret() {
+        this.setModeDeplacement("Pied");
+    }
+
+    @Override
+    public void setModeDeplacement(String modeDeplacement) {
+        if(modeDeplacement == "Velo" || modeDeplacement == "Pied") {
+            super.setModeDeplacement(modeDeplacement);
+        }
+    }
+
+    @Override
+    public void changeModeDeplacement(String modeDeplacement) {
+        if(modeDeplacement == "Velo" || modeDeplacement == "Pied") {
+            super.changeModeDeplacement(modeDeplacement);
+        }
+    }
+
     public void suru(Personnage pers){
-        switch(pers.getDeplacement()){
+        switch(getModeDeplacement()){
             case "Pied":
                 pers.updateValue"hydratation", -10);
                 pers.updateValue("satiete", -10);
