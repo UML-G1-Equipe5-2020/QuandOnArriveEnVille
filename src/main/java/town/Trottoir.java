@@ -14,11 +14,12 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
         }
     }
 
-    @Override
-    public void changeModeDeplacement(String modeDeplacement) {
+
+    public boolean changeModeDeplacement(Personnage pers, String modeDeplacement) {
         if(modeDeplacement == "Velo" || modeDeplacement == "Pied") {
-            super.changeModeDeplacement(modeDeplacement);
+            return super.changeModeDeplacement(pers, modeDeplacement);
         }
+        return false;
     }
 
 
@@ -31,7 +32,7 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
                 if (Math.random() <= 0.005){
-                    pers.mourrir();
+                    pers.mourir();
                 }
         }
         determinerPiege(pers);
@@ -40,7 +41,7 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
     @Override
     public void determinerPiege(Personnage pers) {
         if (Math.random() <= 0.05){
-            int alea = Math.random();
+            double alea = Math.random();
             if (alea <= 0.33){
                 pers.updateValue("vie", -3);
             }else if (0.33 <= alea && alea <= 0.66) {

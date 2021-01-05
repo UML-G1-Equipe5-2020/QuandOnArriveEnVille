@@ -13,11 +13,12 @@ public class Route extends CaseDeDeplacement implements Piege{
         }
     }
 
-    @Override
-    public void changeModeDeplacement(String modeDeplacement) {
+
+    public boolean changeModeDeplacement(Personnage pers, String modeDeplacement) {
         if(modeDeplacement == "Voiture" || modeDeplacement == "Velo") {
-            super.changeModeDeplacement(modeDeplacement);
+            return super.changeModeDeplacement(pers, modeDeplacement);
         }
+        return false;
     }
 
     public void suru(Personnage pers){
@@ -25,7 +26,7 @@ public class Route extends CaseDeDeplacement implements Piege{
             case "Voiture":
                 pers.updateValue("moral", -2);
                 if (Math.random() <= 0.02){
-                    pers.mourrir();
+                    pers.mourir();
                 }
                 if (Math.random() <= 0.05){
                     pers.updateValue("arrestation", 1);
@@ -34,17 +35,17 @@ public class Route extends CaseDeDeplacement implements Piege{
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
                 if (Math.random() <= 0.005){
-                    pers.mourrir();
+                    pers.mourir();
                 }
         }
-        determinerPiege();
+        determinerPiege(pers);
     }
 
 
     @Override
     public void determinerPiege(Personnage pers) {
         if (Math.random() <= 0.05){
-            int alea = Math.random();
+            double alea = Math.random();
             if (alea <= 0.33){
                 pers.updateValue("vie", -1);
             }else if (0.33 <= alea && alea <= 0.66) {
@@ -59,23 +60,24 @@ public class Route extends CaseDeDeplacement implements Piege{
     @Override
     public boolean autoriserDeplacement(Personnage p){
         if(this.getModeDeplacement() == "Voiture"){
-            if(p.getPermis){
+            if(p.getPermis()){
                 return true;
             }else{
                 if(this.changeModeDeplacement(p, "Velo")){
                     return true;
                 }
             }
-            return false
+            return false;
         }else if(getModeDeplacement() == "Velo"){
-            if(p.getVelo){
+            if(p.getVelo()){
                 return true;
             }else{
                 if(this.changeModeDeplacement(p, "Voiture")){
                     return true;
                 }
             }
-            return false
+            return false;
         }
+        return false;
     }
 }

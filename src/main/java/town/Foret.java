@@ -13,11 +13,12 @@ public class Foret extends CaseDeDeplacement{
         }
     }
 
-    @Override
-    public void changeModeDeplacement(String modeDeplacement) {
+
+    public boolean changeModeDeplacement(Personnage pers, String modeDeplacement) {
         if(modeDeplacement == "Velo" || modeDeplacement == "Pied") {
-            super.changeModeDeplacement(modeDeplacement);
+            return super.changeModeDeplacement(pers, modeDeplacement);
         }
+        return false;
     }
 
     public void suru(Personnage pers){
@@ -29,16 +30,16 @@ public class Foret extends CaseDeDeplacement{
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
                 if (Math.random() <= 0.002){
-                    pers.mourrir();
+                    pers.mourir();
                 }
         }
+        determinerPiege(pers);
     }
 
 
-    @Override
     public void determinerPiege(Personnage pers) {
         if (Math.random() <= 0.05){
-            int alea = Math.random();
+            double alea = Math.random();
             if (alea <= 0.10){
                 pers.updateValue("vie", -10);
             }
