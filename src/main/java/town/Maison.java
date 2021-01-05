@@ -19,8 +19,4 @@ public class Maison extends Batiment{
         p.updateValue("hydratation", 10);
     }
 
-    public boolean deplacerPersonnage()
-    {
-        return true;
-    }
 }

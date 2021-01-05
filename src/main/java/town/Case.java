@@ -1,8 +1,9 @@
 package town;
 
 public abstract class Case {
-    final int ligne;
-    final int colonne;
+    private final int ligne;
+
+    private final int colonne;
 
     public Case()
     {
@@ -18,6 +19,20 @@ public abstract class Case {
 
 
     public abstract void suru(Personnage p);
-    public abstract boolean deplacerPersonnage();
+
+
+    public boolean autoriserDeplacement(Personnage p)
+    {
+        return true;
+    }
+
+
+    public int getLigne() {
+        return ligne;
+    }
+
+    public int getColonne() {
+        return colonne;
+    }
 
 }

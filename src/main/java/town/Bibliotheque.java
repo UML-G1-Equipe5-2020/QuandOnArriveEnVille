@@ -23,8 +23,4 @@ public class Bibliotheque extends Batiment{
         }
     }
 
-    public boolean deplacerPersonnage()
-    {
-        return true;
-    }
 }

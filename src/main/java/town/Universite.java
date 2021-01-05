@@ -22,8 +22,4 @@ public class Universite extends Batiment{
         }
     }
 
-    public boolean deplacerPersonnage()
-    {
-        return true;
-    }
 }

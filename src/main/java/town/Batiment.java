@@ -13,6 +13,5 @@ public abstract class Batiment extends Case{
     }
 
     public abstract void suru(Personnage p);
-    public abstract boolean deplacerPersonnage();
 
 }

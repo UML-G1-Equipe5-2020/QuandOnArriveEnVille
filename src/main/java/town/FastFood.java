@@ -20,8 +20,4 @@ public class FastFood extends Batiment{
         p.updateValue("satiete", -5);
     }
 
-    public boolean deplacerPersonnage()
-    {
-        return true;
-    }
 }

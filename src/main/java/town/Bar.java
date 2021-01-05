@@ -26,8 +26,4 @@ public class Bar extends Batiment{
 
     }
 
-    public boolean deplacerPersonnage()
-    {
-        return true;
-    }
 }
