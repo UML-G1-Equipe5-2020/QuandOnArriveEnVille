@@ -7,10 +7,6 @@ public abstract class Personnage {
     protected boolean velo;
 
 
-    public boolean getMaillot() {
-        return maillot;
-    }
-
     protected boolean maillot;
 
     //Variables propre a l'instance du personnage a l'instant T
@@ -34,11 +30,16 @@ public abstract class Personnage {
     protected int nbDiplome = 0;
     protected int nbArrestation = 0;
 
-    public Personnage(boolean permis, boolean velo, boolean maillot)
+    public Personnage(Case caseHouse, boolean permis, boolean velo, boolean maillot)
     {
+        this.casePersonnage = caseHouse;
         this.permis = permis;
         this.velo = velo;
         this.maillot = maillot;
+    }
+
+    public boolean getMaillot() {
+        return maillot;
     }
 
     public boolean getPermis() { return permis; }
@@ -121,5 +122,40 @@ public abstract class Personnage {
     public void mourir()
     {
         this.vie = 0;
+    }
+
+    public boolean seDeplacer(String direction, Ville ville){
+        int currentLigne = this.casePersonnage.getLigne();
+        int currentColonne = this.casePersonnage.getColonne();
+        System.out.println("L: " + currentLigne + "C: " + currentColonne);
+        switch (direction){
+            case "right":
+                if(currentColonne < ville.getLengthOfColonne()-1){
+                    this.setCase(ville.getCase(currentLigne, currentColonne+1));
+                    return true;
+                }
+                break;
+            case "up":
+                if(currentLigne > 0){
+                    this.setCase(ville.getCase(currentLigne-1, currentColonne));
+                    return true;
+                }
+                break;
+            case "left":
+                if(currentColonne > 0){
+                    this.setCase(ville.getCase(currentLigne, currentColonne-1));
+                    return true;
+                }
+                break;
+            case "down":
+                if(currentLigne < ville.getLengthOfLigne()-1){
+                    this.setCase(ville.getCase(currentLigne+1, currentColonne));
+                    return true;
+                }
+                break;
+            default :
+                return false;
+        }
+        return false;
     }
 }
