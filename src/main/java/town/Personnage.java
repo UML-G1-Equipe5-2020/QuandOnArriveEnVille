@@ -26,7 +26,7 @@ public abstract class Personnage {
     protected Case casePersonnage;
 
     //Autre variables
-    protected int chanceDiplome;
+    protected int chanceDiplome = 30;
     protected int nbDiplome = 0;
     protected int nbArrestation = 0;
 

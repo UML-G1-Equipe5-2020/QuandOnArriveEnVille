@@ -3,6 +3,26 @@ package town;
 import java.util.HashMap;
 
 public class Main {
+
+    public static void showVille(Ville honeyWood, String[][] map1, Personnage me) {
+        for (int i = 0; i < map1.length; i++) {
+            for (int j = 0; j < map1[0].length; j++) {
+                if (honeyWood.getCase(i, j) == me.getCase()) {
+                    System.out.print("(");
+                } else {
+                    System.out.print(" ");
+                }
+                honeyWood.showCase(i, j);
+                if (honeyWood.getCase(i, j) == me.getCase()) {
+                    System.out.print(")");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println("");
+        }
+    }
+
     public static void main(String args[]) throws Exception {
         Ville honeyWood = new Ville();
 
@@ -38,31 +58,15 @@ public class Main {
 
         for(int i=0; i < map1.length; i++){
             for(int j=0; j < map1[0].length; j++){
-                honeyWood.addCase(j, i, ShortToFullName.get(map1[i][j]));
+                honeyWood.addCase(i, j, ShortToFullName.get(map1[i][j]));
             }
         }
 
-        Standard me = new Standard(honeyWood.getCase(9 , 5), true, true, true);
+        Standard me = new Standard(honeyWood.getCase(5 , 9), true, true, true);
 
-        for(int i=0; i < map1.length; i++){
-            for(int j=0; j < map1[0].length; j++){
-                if(honeyWood.getCase(j, i) == me.getCase()){
-                    System.out.print("(");
-                }else {
-                    System.out.print(" ");
-                }
-                honeyWood.showCase(j, i);
-                if(honeyWood.getCase(j, i) == me.getCase()){
-                    System.out.print(")");
-                }else {
-                    System.out.print(" ");
-                }
-            }
-            System.out.println("");
-        }
+        showVille(honeyWood, map1, me);
 
-        /*
-        Standard me = new Standard(honeyWood.getCase(0 , 2), true, true, true);
+
         System.out.println(me);
         System.out.println(me.getCase());
 
@@ -70,17 +74,20 @@ public class Main {
         System.out.println(me);
         System.out.println(me.getCase());
 
-        System.out.println(me.seDeplacer("right", honeyWood));
+        showVille(honeyWood, map1, me);
+
+        System.out.println(me.seDeplacer("up", honeyWood));
         System.out.println(me);
         System.out.println(me.getCase());
 
-        System.out.println(me.seDeplacer("left", honeyWood));
+        showVille(honeyWood, map1, me);
+
+        System.out.println(me.seDeplacer("up", honeyWood));
         System.out.println(me);
         System.out.println(me.getCase());
 
-        System.out.println(honeyWood.getCase(0,1));
-        System.out.println(honeyWood.getCase(0,2));
-        System.out.println(honeyWood.getCase(0,3));
-        */
+        showVille(honeyWood, map1, me);
+
+
     }
 }
