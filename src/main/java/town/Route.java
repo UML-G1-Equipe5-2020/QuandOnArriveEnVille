@@ -30,13 +30,15 @@ public class Route extends CaseDeDeplacement implements Piege{
                     pers.mourir();
                 }
                 if (Math.random() <= 0.05){
-                    pers.updateValue("arrestation", 1);
+                    System.out.println("22 vlà les flic : vous vous êtes fait arrêtés");
+                    pers.incrementerArrestation();
                 }
                 break;
             case "Velo":
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
                 if (Math.random() <= 0.005){
+                    System.out.println("PinPon PinPon, vous vous êtes fait écrasé. Vous ferez mieux la prochaine fois");
                     pers.mourir();
                 }
                 break;
@@ -63,6 +65,7 @@ public class Route extends CaseDeDeplacement implements Piege{
     @Override
     public boolean autoriserDeplacement(Personnage p){
         if(this.getModeDeplacement() == "Voiture"){
+            System.out.println("en voiture");
             if(p.getPermis()){
                 return true;
             }else{
@@ -72,6 +75,7 @@ public class Route extends CaseDeDeplacement implements Piege{
             }
             return false;
         }else if(getModeDeplacement() == "Velo"){
+            System.out.println("en voiture");
             if(p.getVelo()){
                 return true;
             }else{
@@ -81,6 +85,7 @@ public class Route extends CaseDeDeplacement implements Piege{
             }
             return false;
         }
+        System.out.println("AUTRE deplacement");
         return false;
     }
 

@@ -1,6 +1,7 @@
 package town;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Main {
 
@@ -40,7 +41,7 @@ public class Main {
 
         String[][] map1 = { {"FO", "BA", "FO", "FO", "FO", "FO", "FO", "FO", "FO", "EA"},
                             {"TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "EA"},
-                            {"TR", "RO", "RO", "RO", "RO", "RO", "RO", "RO", "TR", "EA"},
+                            {"TR", "RO", "RO", "RO", "RO", "TR", "RO", "RO", "TR", "EA"},
                             {"TR", "TR", "TR", "TR", "RO", "BI", "EA", "RO", "TR", "FO"},
                             {"EA", "EA", "FO", "TR", "RO", "FO", "EA", "RO", "TR", "FO"},
                             {"FO", "EA", "EA", "TR", "RO", "FO", "UN", "RO", "FO", "MA"},
@@ -64,29 +65,28 @@ public class Main {
 
         Standard me = new Standard(honeyWood.getCase(5 , 9), true, true, true);
 
-        showVille(honeyWood, map1, me);
 
+        String input;
+        Scanner clavier = new Scanner(System.in);
 
-        System.out.println(me);
-        System.out.println(me.getCase());
-
-        System.out.println(me.seDeplacer("left", honeyWood));
-        System.out.println(me);
-        System.out.println(me.getCase());
 
         showVille(honeyWood, map1, me);
-
-        System.out.println(me.seDeplacer("up", honeyWood));
         System.out.println(me);
-        System.out.println(me.getCase());
 
-        showVille(honeyWood, map1, me);
+        System.out.println("Début simulation");
 
-        System.out.println(me.seDeplacer("up", honeyWood));
-        System.out.println(me);
-        System.out.println(me.getCase());
+        while (true){
+            input = clavier.nextLine();
 
-        showVille(honeyWood, map1, me);
+            System.out.println(me.seDeplacer(input, honeyWood));
+            System.out.println(me);
+            System.out.println(me.getCase());
+
+            showVille(honeyWood, map1, me);
+        }
+
+
+
 
 
     }

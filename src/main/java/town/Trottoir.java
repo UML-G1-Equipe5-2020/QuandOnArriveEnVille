@@ -34,6 +34,7 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
                 if (Math.random() <= 0.005){
+
                     pers.mourir();
                 }
                 break;

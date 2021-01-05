@@ -17,9 +17,10 @@ public class Bibliotheque extends Batiment{
         p.updateValue("moral", 20);
 
         double chance = Math.random();
-        if (chance <= 5/100)
+        if (chance <= 5/100.0)
         {
             p.updateValue("chanceDiplome", 10);
+            System.out.println("Vous avez trouvé le livre de génie logiciel ! (+10% de chance d'obtenir un diplôme)");
         }
     }
 

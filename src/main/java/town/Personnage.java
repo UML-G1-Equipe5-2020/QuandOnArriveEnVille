@@ -122,7 +122,7 @@ public abstract class Personnage {
         }
         else
         {
-            System.out.println("Erreur");
+            System.out.println("Erreur dans updateValue");
         }
 
     }
@@ -191,12 +191,6 @@ public abstract class Personnage {
                 ", hydratation=" + hydratation +
                 ", satiete=" + satiete +
                 ", moral=" + moral +
-                ", maxVie=" + maxVie +
-                ", maxHydratation=" + maxHydratation +
-                ", maxSatiete=" + maxSatiete +
-                ", maxMoral=" + maxMoral +
-                ", maxChance=" + maxChance +
-                ", casePersonnage=" + casePersonnage +
                 ", chanceDiplome=" + chanceDiplome +
                 ", nbDiplome=" + nbDiplome +
                 ", nbArrestation=" + nbArrestation +

@@ -41,11 +41,9 @@ public class Foret extends CaseDeDeplacement{
 
 
     public void determinerPiege(Personnage pers) {
-        if (Math.random() <= 0.05){
-            double alea = Math.random();
-            if (alea <= 0.10){
-                pers.updateValue("vie", -10);
-            }
+        if (Math.random() <= 0.10){
+            System.out.println("Kof Kof ! Arggh vous êtes malade (-10 points de vie)");
+            pers.updateValue("vie", -10);
         }
     }
 
