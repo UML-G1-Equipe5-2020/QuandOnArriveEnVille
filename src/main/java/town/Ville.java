@@ -39,7 +39,7 @@ public class Ville {
 
 
     public void showCase(int ligne, int colonne){
-        System.out.println(this.listeCase[ligne][colonne]);
+        System.out.print(this.listeCase[ligne][colonne]);
     }
 
 

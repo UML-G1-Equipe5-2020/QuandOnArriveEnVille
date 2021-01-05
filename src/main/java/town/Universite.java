@@ -22,4 +22,8 @@ public class Universite extends Batiment{
         }
     }
 
+    @Override
+    public String toString() {
+        return  "UN";
+    }
 }

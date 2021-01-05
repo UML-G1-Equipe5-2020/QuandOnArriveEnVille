@@ -20,4 +20,8 @@ public class FastFood extends Batiment{
         p.updateValue("satiete", -5);
     }
 
+    @Override
+    public String toString() {
+        return  "FA";
+    }
 }

@@ -48,4 +48,9 @@ public class Foret extends CaseDeDeplacement{
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return  "FO";
+    }
 }

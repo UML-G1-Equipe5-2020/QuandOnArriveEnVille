@@ -19,4 +19,9 @@ public class Maison extends Batiment{
         p.updateValue("hydratation", 10);
     }
 
+    @Override
+    public String toString() {
+        return  "MA";
+    }
+
 }

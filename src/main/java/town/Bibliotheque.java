@@ -23,4 +23,9 @@ public class Bibliotheque extends Batiment{
         }
     }
 
+    @Override
+    public String toString() {
+        return  "BI";
+    }
+
 }

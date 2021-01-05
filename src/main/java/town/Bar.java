@@ -26,4 +26,9 @@ public class Bar extends Batiment{
 
     }
 
+    @Override
+    public String toString() {
+        return  "BA";
+    }
+
 }

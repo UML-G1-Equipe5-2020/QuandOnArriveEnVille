@@ -83,4 +83,9 @@ public class Route extends CaseDeDeplacement implements Piege{
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return  "RO";
+    }
 }

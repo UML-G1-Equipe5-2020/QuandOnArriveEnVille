@@ -55,4 +55,8 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
         }
     }
 
+    @Override
+    public String toString() {
+        return  "TR";
+    }
 }

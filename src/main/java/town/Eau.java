@@ -16,4 +16,10 @@ public class Eau extends CaseDeDeplacement{
     public boolean autoriserDeplacement(Personnage p){
             return p.getMaillot();
     }
+
+
+    @Override
+    public String toString() {
+        return  "EA";
+    }
 }
