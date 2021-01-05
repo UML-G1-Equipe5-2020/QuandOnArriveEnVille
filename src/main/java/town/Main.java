@@ -2,6 +2,7 @@ package town;
 
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -77,12 +78,25 @@ public class Main {
 
         while (true){
             input = clavier.nextLine();
+            if(Pattern.matches("Velo|Voiture|Pied", input)){
+                try {
+                    if (!((CaseDeDeplacement) me.casePersonnage).changeModeDeplacement(me, input)) {
+                        System.out.println("Mode de déplacement indisponible pour cette case");
+                    } else {
+                        System.out.println("Vous vous déplacez maintenant en " + input);
+                    }
+                }catch(Exception e){
+                    System.out.println("On se déplace toujours à pieds dans un batiment...");
+                }
+            }
+            else if(me.seDeplacer(input, honeyWood)) {
+                System.out.println(me);
+                System.out.println(me.getCase());
 
-            System.out.println(me.seDeplacer(input, honeyWood));
-            System.out.println(me);
-            System.out.println(me.getCase());
-
-            showVille(honeyWood, map1, me);
+                showVille(honeyWood, map1, me);
+            }else{
+                System.out.println("Commande incorrecte !");
+            }
         }
 
 

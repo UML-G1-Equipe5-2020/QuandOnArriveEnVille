@@ -13,19 +13,19 @@ public abstract class CaseDeDeplacement extends Case{
     }
 
     public void setModeDeplacement(String modeDeplacement) {
-        if(modeDeplacement == "Voiture" || modeDeplacement == "Velo" || modeDeplacement == "Pied") {
+        if(modeDeplacement.equals("Voiture") || modeDeplacement.equals("Velo") || modeDeplacement.equals("Pied")) {
             this.modeDeplacement = modeDeplacement;
         }
     }
 
     public boolean changeModeDeplacement(Personnage pers, String modeDeplacement) {
-        if(modeDeplacement == "Voiture" && pers.getPermis()) {
+        if(modeDeplacement.equals("Voiture") && pers.getPermis()) {
             this.modeDeplacement = modeDeplacement;
             return true;
-        }else if(modeDeplacement == "Velo" && pers.getVelo()){
+        }else if(modeDeplacement.equals("Velo") && pers.getVelo()){
             this.modeDeplacement = modeDeplacement;
             return true;
-        }else if(modeDeplacement == "Pied"){
+        }else if(modeDeplacement.equals("Pied")){
             this.modeDeplacement = modeDeplacement;
             return true;
         }

@@ -14,6 +14,7 @@ public class Bibliotheque extends Batiment{
 
     public void suru(Personnage p)
     {
+        System.out.println("SIIlEEence !!! C'est pas le zoo, ici, c'est la bibliothèque");
         p.updateValue("moral", 20);
 
         double chance = Math.random();

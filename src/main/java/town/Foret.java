@@ -9,20 +9,21 @@ public class Foret extends CaseDeDeplacement{
 
     @Override
     public void setModeDeplacement(String modeDeplacement) {
-        if(modeDeplacement == "Velo" || modeDeplacement == "Pied") {
+        if(modeDeplacement.equals("Velo") || modeDeplacement.equals("Pied")) {
             super.setModeDeplacement(modeDeplacement);
         }
     }
 
 
     public boolean changeModeDeplacement(Personnage pers, String modeDeplacement) {
-        if(modeDeplacement == "Velo" || modeDeplacement == "Pied") {
+        if(modeDeplacement.equals("Velo") || modeDeplacement.equals("Pied")) {
             return super.changeModeDeplacement(pers, modeDeplacement);
         }
         return false;
     }
 
     public void suru(Personnage pers){
+        System.out.println("Loup y es-tu ?");
         switch(getModeDeplacement()){
             case "Pied":
                 pers.updateValue("hydratation", -10);

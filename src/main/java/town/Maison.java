@@ -14,6 +14,7 @@ public class Maison extends Batiment{
 
     public void suru(Personnage p)
     {
+        System.out.println("Métro, boulot, dodo ? C'est l'heure de l'apéro");
         p.updateValue("moral", 10);
         p.updateValue("satiete", 10);
         p.updateValue("hydratation", 10);

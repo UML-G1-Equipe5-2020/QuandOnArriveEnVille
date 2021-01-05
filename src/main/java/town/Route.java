@@ -9,14 +9,14 @@ public class Route extends CaseDeDeplacement implements Piege{
 
     @Override
     public void setModeDeplacement(String modeDeplacement) {
-        if(modeDeplacement == "Voiture" || modeDeplacement == "Velo") {
+        if(modeDeplacement.equals("Voiture") || modeDeplacement.equals("Velo")) {
             super.setModeDeplacement(modeDeplacement);
         }
     }
 
 
     public boolean changeModeDeplacement(Personnage pers, String modeDeplacement) {
-        if(modeDeplacement == "Voiture" || modeDeplacement == "Velo") {
+        if(modeDeplacement.equals("Voiture") || modeDeplacement.equals("Velo")) {
             return super.changeModeDeplacement(pers, modeDeplacement);
         }
         return false;
@@ -25,6 +25,7 @@ public class Route extends CaseDeDeplacement implements Piege{
     public void suru(Personnage pers){
         switch(getModeDeplacement()){
             case "Voiture":
+                System.out.println("Vrooom");
                 pers.updateValue("moral", -2);
                 if (Math.random() <= 0.02){
                     pers.mourir();
@@ -35,6 +36,7 @@ public class Route extends CaseDeDeplacement implements Piege{
                 }
                 break;
             case "Velo":
+                System.out.println("DingDing !");
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
                 if (Math.random() <= 0.005){
