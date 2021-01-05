@@ -3,7 +3,8 @@ package town;
 public class Trottoir extends CaseDeDeplacement implements Piege{
 
 
-    public Trottoir() {
+    public Trottoir(int ligne, int colonne) {
+        super(ligne, colonne);
         this.setModeDeplacement("Pied");
     }
 
@@ -28,12 +29,14 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
             case "Pied":
                 pers.updateValue("hydratation", -10);
                 pers.updateValue("satiete", -10);
+                break;
             case "Velo":
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
                 if (Math.random() <= 0.005){
                     pers.mourir();
                 }
+                break;
         }
         determinerPiege(pers);
     }

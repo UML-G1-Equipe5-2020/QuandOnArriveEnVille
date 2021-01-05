@@ -1,8 +1,8 @@
 package town;
 
 public class Standard extends Personnage {
-    public Standard(boolean permis, boolean velo, boolean maillot) {
-        super(permis, velo, maillot);
+    public Standard(Case house, boolean permis, boolean velo, boolean maillot) {
+        super(house, permis, velo, maillot);
         this.maxVie = 75;
         this.maxHydratation = 75;
         this.maxSatiete = 75;

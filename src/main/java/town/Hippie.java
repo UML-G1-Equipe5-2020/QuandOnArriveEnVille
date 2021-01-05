@@ -1,8 +1,8 @@
 package town;
 
 public class Hippie extends Personnage {
-    public Hippie(boolean permis, boolean velo, boolean maillot) {
-        super(permis, velo, maillot);
+    public Hippie(Case house, boolean permis, boolean velo, boolean maillot) {
+        super(house, permis, velo, maillot);
         this.maxVie = 75;
         this.maxHydratation = 50;
         this.maxSatiete = 50;

@@ -3,6 +3,10 @@ package town;
 public abstract class CaseDeDeplacement extends Case{
     private String modeDeplacement;
 
+    public CaseDeDeplacement(int ligne, int colonne){
+        super(ligne, colonne);
+    }
+
 
     public String getModeDeplacement() {
         return modeDeplacement;

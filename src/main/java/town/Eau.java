@@ -2,7 +2,8 @@ package town;
 
 public class Eau extends CaseDeDeplacement{
 
-    public Eau() {
+    public Eau(int ligne, int colonne) {
+        super(ligne, colonne);
         this.setModeDeplacement("Pied");
     }
 

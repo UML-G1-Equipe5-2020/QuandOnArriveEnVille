@@ -67,24 +67,34 @@ public abstract class Personnage {
     {
         if(barre.equals("vie") && valeur < 0)
         {
-            if(this.vie+valeur <= maxVie && this.vie+valeur > 0  )
+            if(this.vie+valeur <= maxVie && this.vie+valeur >= 0  )
             {
                 this.vie += valeur;
+            }else{
+                this.vie = 0;
             }
         }
         else if(barre.equals("hydratation"))
         {
-            if(this.hydratation+valeur <= maxHydratation && this.hydratation+valeur > 0 )
+            if(this.hydratation+valeur <= maxHydratation && this.hydratation+valeur >= 0 )
             {
                 this.hydratation += valeur;
+            }else if (this.hydratation+valeur > maxHydratation){
+                this.hydratation = maxHydratation;
+            }else{
+                this.hydratation = 0;
             }
 
         }
         else if(barre.equals("satiete"))
         {
-            if(this.satiete+valeur <= maxSatiete && this.satiete+valeur > 0 )
+            if(this.satiete+valeur <= maxSatiete && this.satiete+valeur >= 0 )
             {
                 this.satiete += valeur;
+            }else if (this.satiete+valeur > maxSatiete){
+                this.satiete = maxSatiete;
+            }else{
+                this.satiete = 0;
             }
 
         }
@@ -93,6 +103,10 @@ public abstract class Personnage {
             if(this.moral+valeur <= maxMoral && this.moral+valeur > 0 )
             {
                 this.moral += valeur;
+            }else if (this.moral+valeur > maxMoral){
+                this.moral = maxMoral;
+            }else{
+                this.moral = 0;
             }
         }
         else if(barre.equals("chance"))
@@ -100,6 +114,10 @@ public abstract class Personnage {
             if(this.chanceDiplome+valeur <= maxChance && valeur > 0)
             {
                 this.chanceDiplome += valeur;
+            }else if (this.chanceDiplome+valeur > maxChance){
+                this.chanceDiplome = maxChance;
+            }else{
+                this.chanceDiplome = 0;
             }
         }
         else
@@ -132,24 +150,28 @@ public abstract class Personnage {
             case "right":
                 if(currentColonne < ville.getLengthOfColonne()-1){
                     this.setCase(ville.getCase(currentLigne, currentColonne+1));
+                    this.casePersonnage.suru(this);
                     return true;
                 }
                 break;
             case "up":
                 if(currentLigne > 0){
                     this.setCase(ville.getCase(currentLigne-1, currentColonne));
+                    this.casePersonnage.suru(this);
                     return true;
                 }
                 break;
             case "left":
                 if(currentColonne > 0){
                     this.setCase(ville.getCase(currentLigne, currentColonne-1));
+                    this.casePersonnage.suru(this);
                     return true;
                 }
                 break;
             case "down":
                 if(currentLigne < ville.getLengthOfLigne()-1){
                     this.setCase(ville.getCase(currentLigne+1, currentColonne));
+                    this.casePersonnage.suru(this);
                     return true;
                 }
                 break;

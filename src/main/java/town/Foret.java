@@ -2,7 +2,8 @@ package town;
 
 public class Foret extends CaseDeDeplacement{
 
-    public Foret() {
+    public Foret(int ligne, int colonne) {
+        super(ligne, colonne);
         this.setModeDeplacement("Pied");
     }
 
@@ -26,12 +27,14 @@ public class Foret extends CaseDeDeplacement{
             case "Pied":
                 pers.updateValue("hydratation", -10);
                 pers.updateValue("satiete", -10);
+                break;
             case "Velo":
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
                 if (Math.random() <= 0.002){
                     pers.mourir();
                 }
+                break;
         }
         determinerPiege(pers);
     }

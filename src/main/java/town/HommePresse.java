@@ -1,8 +1,8 @@
 package town;
 
 public class HommePresse extends Personnage {
-    public HommePresse(boolean permis, boolean velo, boolean maillot) {
-        super(permis, velo, maillot);
+    public HommePresse(Case house, boolean permis, boolean velo, boolean maillot) {
+        super(house, permis, velo, maillot);
 
 
         this.maxVie = 100;

@@ -2,7 +2,8 @@ package town;
 
 public class Route extends CaseDeDeplacement implements Piege{
 
-    public Route() {
+    public Route(int ligne, int colonne) {
+        super(ligne, colonne);
         this.setModeDeplacement("Voiture");
     }
 
@@ -31,12 +32,14 @@ public class Route extends CaseDeDeplacement implements Piege{
                 if (Math.random() <= 0.05){
                     pers.updateValue("arrestation", 1);
                 }
+                break;
             case "Velo":
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
                 if (Math.random() <= 0.005){
                     pers.mourir();
                 }
+                break;
         }
         determinerPiege(pers);
     }
