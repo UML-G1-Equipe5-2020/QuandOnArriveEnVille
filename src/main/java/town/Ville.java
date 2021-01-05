@@ -27,13 +27,9 @@ public class Ville {
 
 
     public void addCase(int ligne, int colonne, String classType) throws Exception {
-        //this.listeCase[ligne][colonne] = (Case) Class.forName("town."+classType).newInstance(ligne, colonne);
-
         Class[] type = { int.class, int.class};
-        Class classDefinition = Class.forName("town."+classType);
-        Constructor cons = classDefinition .getConstructor(type);
         Object[] obj = {ligne, colonne};
-        this.listeCase[ligne][colonne] = (Case) cons.newInstance(obj);
+        this.listeCase[ligne][colonne] = (Case) Class.forName("town."+classType).getDeclaredConstructor(type).newInstance(obj);
     }
 
 
