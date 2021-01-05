@@ -42,9 +42,9 @@ public class Route extends CaseDeDeplacement implements Piege{
 
 
     @Override
-    public void determinerPiege() {
+    public void determinerPiege(Personnage pers) {
         if (Math.random() <= 0.05){
-            int alea = Math.random()
+            int alea = Math.random();
             if (alea <= 0.33){
                 pers.updateValue("vie", -1);
             }else if (0.33 <= alea && alea <= 0.66) {

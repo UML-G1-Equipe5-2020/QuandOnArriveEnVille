@@ -7,7 +7,7 @@ public class Eau extends CaseDeDeplacement{
     }
 
     public void suru(Personnage pers){
-        pers.updateValue"hydratation", -10);
+        pers.updateValue("hydratation", -10);
         pers.updateValue("satiete", -10);
     }
 

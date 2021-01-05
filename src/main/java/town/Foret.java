@@ -23,7 +23,7 @@ public class Foret extends CaseDeDeplacement{
     public void suru(Personnage pers){
         switch(getModeDeplacement()){
             case "Pied":
-                pers.updateValue"hydratation", -10);
+                pers.updateValue("hydratation", -10);
                 pers.updateValue("satiete", -10);
             case "Velo":
                 pers.updateValue("hydratation", -5);
@@ -36,9 +36,9 @@ public class Foret extends CaseDeDeplacement{
 
 
     @Override
-    public void determinerPiege() {
+    public void determinerPiege(Personnage pers) {
         if (Math.random() <= 0.05){
-            int alea = Math.random()
+            int alea = Math.random();
             if (alea <= 0.10){
                 pers.updateValue("vie", -10);
             }

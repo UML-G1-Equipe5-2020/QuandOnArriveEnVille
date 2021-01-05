@@ -1,5 +1,5 @@
 package town;
 
 public interface Piege {
-    public void determinerPiege();
+    public void determinerPiege(Personnage pers);
 }
