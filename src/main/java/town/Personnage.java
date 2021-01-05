@@ -158,4 +158,26 @@ public abstract class Personnage {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Personnage{" +
+                "permis=" + permis +
+                ", velo=" + velo +
+                ", maillot=" + maillot +
+                ", vie=" + vie +
+                ", hydratation=" + hydratation +
+                ", satiete=" + satiete +
+                ", moral=" + moral +
+                ", maxVie=" + maxVie +
+                ", maxHydratation=" + maxHydratation +
+                ", maxSatiete=" + maxSatiete +
+                ", maxMoral=" + maxMoral +
+                ", maxChance=" + maxChance +
+                ", casePersonnage=" + casePersonnage +
+                ", chanceDiplome=" + chanceDiplome +
+                ", nbDiplome=" + nbDiplome +
+                ", nbArrestation=" + nbArrestation +
+                '}';
+    }
 }

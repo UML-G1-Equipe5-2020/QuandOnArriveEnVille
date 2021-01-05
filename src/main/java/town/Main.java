@@ -13,6 +13,8 @@ public class Main {
         honeyWood.showCase(0, 2);
 
         Standard me = new Standard(honeyWood.getCase(0 , 2), true, true, true);
+        System.out.println(me);
         System.out.println(me.seDeplacer("left", honeyWood));
+        System.out.println(me);
     }
 }
