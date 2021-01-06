@@ -38,8 +38,8 @@ public class Route extends CaseDeDeplacement implements Piege{
                 break;
             case "velo":
                 System.out.println("DingDing !");
-                pers.updateValue("hydratation", (int) (-5*pers.getFacteurDePerte()));
-                pers.updateValue("satiete", (int) (-5*pers.getFacteurDePerte()));
+                pers.updateValue("hydratation", (int) (-2*pers.getFacteurDePerte()));  // 2 au lieu de 5
+                pers.updateValue("satiete", (int) (-2*pers.getFacteurDePerte()));  // 2 au lieu de 5
                 if (Math.random() <= 0.005){
                     System.out.println("PinPon PinPon, vous vous êtes fait écrasé. Vous ferez mieux la prochaine fois");
                     pers.mourir();
