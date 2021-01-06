@@ -39,16 +39,17 @@ public class Main {
         ShortToFullName.put("RO", "Route");
         ShortToFullName.put("TR", "Trottoir");
         ShortToFullName.put("UN", "Universite");
+        ShortToFullName.put("XX", "CaseGrisee");
 
         String[][] map1 = { {"FO", "BA", "FO", "FO", "FO", "FO", "FO", "FO", "FO", "EA"},
                             {"TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "EA"},
-                            {"TR", "RO", "RO", "RO", "RO", "TR", "RO", "RO", "TR", "EA"},
+                            {"TR", "XX", "XX", "XX", "RO", "TR", "RO", "RO", "TR", "EA"},
                             {"TR", "TR", "TR", "TR", "RO", "BI", "EA", "RO", "TR", "FO"},
-                            {"EA", "EA", "FO", "TR", "RO", "FO", "EA", "RO", "TR", "FO"},
-                            {"FO", "EA", "EA", "TR", "RO", "FO", "UN", "RO", "FO", "MA"},
+                            {"EA", "EA", "FO", "XX", "RO", "FO", "EA", "RO", "TR", "FO"},
+                            {"FO", "EA", "EA", "XX", "RO", "FO", "UN", "RO", "FO", "MA"},
                             {"FO", "TR", "TR", "TR", "RO", "RO", "TR", "RO", "TR", "EA"},
                             {"FO", "TR", "RO", "RO", "RO", "TR", "TR", "RO", "TR", "EA"},
-                            {"FO", "TR", "RO", "TR", "TR", "TR", "TR", "RO", "TR", "EA"},
+                            {"FO", "TR", "RO", "TR", "TR", "XX", "TR", "RO", "TR", "EA"},
                             {"FO", "TR", "TR", "TR", "FA", "FO", "TR", "TR", "TR", "EA"}};
 
         /*
