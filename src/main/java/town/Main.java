@@ -52,6 +52,29 @@ public class Main {
                             {"FO", "TR", "RO", "TR", "TR", "XX", "TR", "RO", "TR", "EA"},
                             {"FO", "TR", "TR", "TR", "FA", "FO", "TR", "TR", "TR", "EA"}};
 
+        String[][] map2 = { {"FO", "FO", "FO", "FO", "EA", "EA", "FO", "FO", "FO", "MA"},
+                            {"FO", "TR", "FO", "FO", "FO", "FO", "FO", "FO", "XX", "XX"},
+                            {"FO", "TR", "RO", "RO", "RO", "EA", "EA", "FO", "FO", "XX"},
+                            {"FO", "TR", "RO", "FO", "FO", "FO", "EA", "EA", "FO", "FO"},
+                            {"FO", "TR", "TR", "TR", "FA", "FO", "FO", "EA", "EA", "EA"},
+                            {"XX", "TR", "RO", "TR", "TR", "TR", "TR", "EA", "EA", "BA"},
+                            {"XX", "TR", "RO", "RO", "RO", "RO", "TR", "EA", "EA", "EA"},
+                            {"XX", "TR", "RO", "TR", "TR", "TR", "TR", "TR", "TR", "EA"},
+                            {"BI", "TR", "RO", "TR", "FO", "FO", "FO", "FO", "RO", "RO"},
+                            {"XX", "XX", "XX", "XX", "EA", "EA", "EA", "FO", "FO", "UN"}};
+
+        String[][] map3 = { {"TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR"},
+                            {"TR", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "TR"},
+                            {"MA", "XX", "EA", "EA", "EA", "FO", "EA", "UN", "XX", "TR"},
+                            {"XX", "XX", "EA", "EA", "EA", "FO", "EA", "FO", "XX", "TR"},
+                            {"FO", "TR", "TR", "RO", "RO", "FO", "FO", "FO", "XX", "TR"},
+                            {"FO", "XX", "TR", "TR", "RO", "XX", "XX", "FO", "XX", "TR"},
+                            {"FO", "FO", "EA", "TR", "RO", "RO", "XX", "FO", "XX", "TR"},
+                            {"FO", "XX", "XX", "TR", "FO", "FO", "FO", "FO", "XX", "FA"},
+                            {"FO", "FO", "XX", "TR", "XX", "XX", "XX", "XX", "XX", "TR"},
+                            {"BA", "BI", "XX", "TR", "TR", "TR", "TR", "TR", "TR", "TR"}};
+
+
         /*
         honeyWood.addCase(0, 0, "Bar");
         honeyWood.addCase(0, 1, "Trottoir");
