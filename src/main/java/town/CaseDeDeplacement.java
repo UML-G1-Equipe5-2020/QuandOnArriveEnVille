@@ -33,7 +33,7 @@ public abstract class CaseDeDeplacement extends Case{
     }
 
     public boolean changeModeDeplacement(Personnage pers, String modeDeplacement) {
-        if(modeDeplacement.equals("voiture") && pers.getPermis()) {
+        if(modeDeplacement.equals("voiture") && pers.getPermis() && pers.getClass() != town.Hippie.class) {
             this.modeDeplacement = modeDeplacement;
             return true;
         }else if(modeDeplacement.equals("velo") && pers.getVelo()){
