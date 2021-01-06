@@ -14,8 +14,7 @@ public class Bar extends Batiment{
 
     public void suru(Personnage p)
     {
-        System.out.println("On boit un coup ? Pas  left" +
-                "plus haut que le bord !");
+        System.out.println("On boit un coup ? Pas plus haut que le bord !");
 
         //On augmente ou diminue les valeurs du personnage
         p.updateValue("hydratation", 25);

@@ -52,7 +52,7 @@ public class Main {
                             {"TR", "XX", "XX", "XX", "RO", "TR", "RO", "RO", "TR", "EA"},
                             {"TR", "TR", "TR", "TR", "RO", "BI", "EA", "RO", "TR", "FO"},
                             {"EA", "EA", "FO", "XX", "RO", "FO", "EA", "RO", "TR", "FO"},
-                            {"FO", "EA", "EA", "XX", "RO", "FO", "UN", "RO", "FO", "MA"},
+                            {"FO", "EA", "EA", "XX", "RO", "FO", "UN", "RO", "TR", "MA"},
                             {"FO", "TR", "TR", "TR", "RO", "RO", "TR", "RO", "TR", "EA"},
                             {"FO", "TR", "RO", "RO", "RO", "TR", "TR", "RO", "TR", "EA"},
                             {"FO", "TR", "RO", "TR", "TR", "XX", "TR", "RO", "TR", "EA"},
@@ -61,15 +61,15 @@ public class Main {
         mapCatalogue.put("map1", map1);
 
 
-        String[][] map2 = { {"FO", "FO", "FO", "FO", "EA", "EA", "FO", "FO", "FO", "MA"},
-                            {"FO", "TR", "FO", "FO", "FO", "FO", "FO", "FO", "XX", "XX"},
+        String[][] map2 = { {"FO", "FO", "FO", "FO", "EA", "EA", "TR", "TR", "TR", "MA"},
+                            {"FO", "TR", "TR", "TR", "TR", "TR", "TR", "FO", "XX", "XX"},
                             {"FO", "TR", "RO", "RO", "RO", "EA", "EA", "FO", "FO", "XX"},
                             {"FO", "TR", "RO", "FO", "FO", "FO", "EA", "EA", "FO", "FO"},
-                            {"FO", "TR", "TR", "TR", "FA", "FO", "FO", "EA", "EA", "EA"},
+                            {"FO", "TR", "TR", "TR", "FA", "FO", "TR", "TR", "TR", "TR"},
                             {"XX", "TR", "RO", "TR", "TR", "TR", "TR", "EA", "EA", "BA"},
                             {"XX", "TR", "RO", "RO", "RO", "RO", "TR", "EA", "EA", "EA"},
                             {"XX", "TR", "RO", "TR", "TR", "TR", "TR", "TR", "TR", "EA"},
-                            {"BI", "TR", "RO", "TR", "FO", "FO", "FO", "FO", "RO", "RO"},
+                            {"BI", "TR", "RO", "TR", "FO", "FO", "FO", "FO", "TR", "TR"},
                             {"XX", "XX", "XX", "XX", "EA", "EA", "EA", "FO", "FO", "UN"}};
 
         mapCatalogue.put("map2", map2);
@@ -78,13 +78,13 @@ public class Main {
         String[][] map3 = { {"TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR"},
                             {"TR", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "TR"},
                             {"MA", "XX", "EA", "EA", "EA", "FO", "EA", "UN", "XX", "TR"},
-                            {"XX", "XX", "EA", "EA", "EA", "FO", "EA", "FO", "XX", "TR"},
-                            {"FO", "TR", "TR", "RO", "RO", "FO", "FO", "FO", "XX", "TR"},
-                            {"FO", "XX", "TR", "TR", "RO", "XX", "XX", "FO", "XX", "TR"},
-                            {"FO", "FO", "EA", "TR", "RO", "RO", "XX", "FO", "XX", "TR"},
-                            {"FO", "XX", "XX", "TR", "FO", "FO", "FO", "FO", "XX", "FA"},
-                            {"FO", "FO", "XX", "TR", "XX", "XX", "XX", "XX", "XX", "TR"},
-                            {"BA", "BI", "XX", "TR", "TR", "TR", "TR", "TR", "TR", "TR"}};
+                            {"XX", "XX", "EA", "EA", "EA", "FO", "EA", "TR", "XX", "TR"},
+                            {"TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "XX", "TR"},
+                            {"TR", "XX", "EA", "TR", "EA", "XX", "XX", "RO", "XX", "TR"},
+                            {"TR", "FO", "EA", "TR", "EA", "BA", "XX", "RO", "XX", "TR"},
+                            {"TR", "XX", "XX", "TR", "FO", "RO", "RO", "RO", "RO", "FA"},
+                            {"TR", "TR", "XX", "TR", "XX", "XX", "XX", "XX", "XX", "TR"},
+                            {"EA", "BI", "XX", "TR", "TR", "TR", "TR", "TR", "TR", "TR"}};
 
         mapCatalogue.put("map3", map3);
 
@@ -117,8 +117,6 @@ public class Main {
                 }
             }
         }
-        System.out.println(ligneHouse);
-        System.out.println(colonneHouse);
 
         //Standard me = new Standard(honeyWood.getCase(5 , 9), true, true, true);
         //Hippie me = new Hippie(honeyWood.getCase(5,9), true, true, true);
@@ -145,7 +143,7 @@ public class Main {
 
                 pickType = true;
                 while(!pickPermis) {
-                    System.out.println("Voulez-vous que votre personnage ai le permis ? (oui/non)");
+                    System.out.println("Voulez-vous que votre personnage ait le permis ? (oui/non)");
                     String reponse = pType.nextLine();
 
                     if(reponse.equals("oui") || reponse.equals("non")) {
@@ -162,7 +160,7 @@ public class Main {
                     }
                 }
                 while(!pickVelo) {
-                    System.out.println("Voulez-vous que votre personnage ai un vélo ? (oui/non)");
+                    System.out.println("Voulez-vous que votre personnage ait un vélo ? (oui/non)");
                     String reponse = pType.nextLine();
                     if(reponse.equals("oui") || reponse.equals("non")) {
                         if(reponse.equals("oui")) {
@@ -179,7 +177,7 @@ public class Main {
                 }
 
                 while(!pickMaillot) {
-                    System.out.println("Voulez-vous que votre personnage ai un maillot ? (oui/non)");
+                    System.out.println("Voulez-vous que votre personnage ait un maillot ? (oui/non)");
                     String reponse = pType.nextLine();
                     if(reponse.equals("oui") || reponse.equals("non")) {
                         if(reponse.equals("oui")) {
