@@ -206,7 +206,7 @@ public class Main {
         showVille(honeyWood, map1, me);
         System.out.println(me);
 
-        System.out.println("Commandes : z, q, s, d, velo, voiture, pieds");
+        System.out.println("Commandes : z, q, s, d, velo, voiture, pieds, quitter");
         System.out.println("Début simulation");
 
         while (me.getVie() != 0 && me.getHydratation() != 0  && me.getSatiete() != 0 && me.getMoral() != 0){
@@ -230,6 +230,9 @@ public class Main {
                 }else{
                     System.out.println("Impossible de se déplacer ici");
                 }
+            }
+            else if(Pattern.matches("quitter", input)){
+                break;
             }else{
                 System.out.println("Commande incorrecte !");
                 System.out.println("Commandes : z, q, s, d, velo, voiture, pieds");
