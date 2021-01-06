@@ -12,5 +12,17 @@ public class Hippie extends Personnage {
         this.hydratation = this.maxHydratation;
         this.satiete = this.maxSatiete;
         this.moral = this.maxMoral;
+
+    }
+
+    public void updateValue(String barre, int valeur )
+    {
+        if(!barre.equals("moral"))
+        {
+            super.updateValue(barre, valeur);
+        }
+
+
+
     }
 }
