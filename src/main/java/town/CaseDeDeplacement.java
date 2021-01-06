@@ -12,6 +12,20 @@ public abstract class CaseDeDeplacement extends Case{
         return modeDeplacement;
     }
 
+
+    public void suru(Personnage pers){
+        switch (this.modeDeplacement){
+            case "voiture":
+                System.out.print("Vous êtes en ");
+                break;
+            case "velo":
+            case "pieds":
+                System.out.print("Vous êtes à ");
+        }
+        System.out.println(this.modeDeplacement);
+    }
+
+
     public void setModeDeplacement(String modeDeplacement) {
         if(modeDeplacement.equals("voiture") || modeDeplacement.equals("velo") || modeDeplacement.equals("pieds")) {
             this.modeDeplacement = modeDeplacement;

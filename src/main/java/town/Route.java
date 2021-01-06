@@ -23,6 +23,7 @@ public class Route extends CaseDeDeplacement implements Piege{
     }
 
     public void suru(Personnage pers){
+        super.suru(pers);
         switch(getModeDeplacement()){
             case "voiture":
                 System.out.println("Vrooom");
@@ -67,7 +68,6 @@ public class Route extends CaseDeDeplacement implements Piege{
     @Override
     public boolean autoriserDeplacement(Personnage p){
         if(this.getModeDeplacement() == "voiture"){
-            System.out.println("en voiture");
             if(p.getPermis()){
                 return true;
             }else{
@@ -77,7 +77,6 @@ public class Route extends CaseDeDeplacement implements Piege{
             }
             return false;
         }else if(getModeDeplacement() == "velo"){
-            System.out.println("en vélo");
             if(p.getVelo()){
                 return true;
             }else{

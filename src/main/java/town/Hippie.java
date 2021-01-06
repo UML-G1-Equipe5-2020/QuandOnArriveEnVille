@@ -16,14 +16,18 @@ public class Hippie extends Personnage {
 
     }
 
-    public void updateValue(String barre, int valeur )
-    {
-        if(!barre.equals("moral"))
-        {
+    public void updateValue(String barre, int valeur ) {
+        if (!barre.equals("moral")) {
             super.updateValue(barre, valeur);
         }
-
-
-
     }
+
+    public boolean seDeplacer(String direction, Ville ville){
+        boolean deplace = super.seDeplacer(direction, ville);
+        if(deplace){
+            this.updateValue("vie", -2);
+        }
+        return deplace;
+    }
+
 }

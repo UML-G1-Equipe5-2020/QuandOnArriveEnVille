@@ -16,4 +16,12 @@ public class HommePresse extends Personnage {
         this.satiete = this.maxSatiete;
         this.moral = this.maxMoral; 
     }
+
+    public boolean seDeplacer(String direction, Ville ville){
+        boolean deplace = super.seDeplacer(direction, ville);
+        if(deplace){
+            this.updateValue("moral", -2);
+        }
+        return deplace;
+    }
 }

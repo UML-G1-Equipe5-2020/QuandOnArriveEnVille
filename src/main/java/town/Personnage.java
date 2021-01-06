@@ -150,37 +150,35 @@ public abstract class Personnage {
     public boolean seDeplacer(String direction, Ville ville){
         int currentLigne = this.casePersonnage.getLigne();
         int currentColonne = this.casePersonnage.getColonne();
+        Case targetCase = null;
         switch (direction){
             case "d":
                 if(currentColonne < ville.getLengthOfColonne()-1){
-                    this.setCase(ville.getCase(currentLigne, currentColonne+1));
-                    this.casePersonnage.suru(this);
-                    return true;
+                    targetCase = ville.getCase(currentLigne, currentColonne+1);
                 }
                 break;
             case "z":
                 if(currentLigne > 0){
-                    this.setCase(ville.getCase(currentLigne-1, currentColonne));
-                    this.casePersonnage.suru(this);
-                    return true;
+                    targetCase = ville.getCase(currentLigne-1, currentColonne);
                 }
                 break;
             case "q":
                 if(currentColonne > 0){
-                    this.setCase(ville.getCase(currentLigne, currentColonne-1));
-                    this.casePersonnage.suru(this);
-                    return true;
+                    targetCase = ville.getCase(currentLigne, currentColonne-1);
                 }
                 break;
             case "s":
                 if(currentLigne < ville.getLengthOfLigne()-1){
-                    this.setCase(ville.getCase(currentLigne+1, currentColonne));
-                    this.casePersonnage.suru(this);
-                    return true;
+                    targetCase = ville.getCase(currentLigne+1, currentColonne);
                 }
                 break;
             default :
                 return false;
+        }
+        if(targetCase != null && targetCase.autoriserDeplacement(this)) {
+            this.setCase(targetCase);
+            this.casePersonnage.suru(this);
+            return true;
         }
         return false;
     }

@@ -25,6 +25,7 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
 
 
     public void suru(Personnage pers){
+        super.suru(pers);
         switch(getModeDeplacement()){
             case "pieds":
                 System.out.println("42.332 km à pieds, ça use, ça use");

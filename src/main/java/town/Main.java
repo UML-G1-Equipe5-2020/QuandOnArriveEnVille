@@ -66,7 +66,83 @@ public class Main {
         }
 
         //Standard me = new Standard(honeyWood.getCase(5 , 9), true, true, true);
-        Hippie me = new Hippie(honeyWood.getCase(5,9), true, true, true);
+        //Hippie me = new Hippie(honeyWood.getCase(5,9), true, true, true);
+        //HommePresse me = new HommePresse(honeyWood.getCase(5,9), true, true, true);
+
+        boolean pickType = false;
+        boolean pickPermis = false;
+        boolean pickVelo = false;
+        boolean pickMaillot = false;
+
+        Scanner pType = new Scanner(System.in);
+
+        boolean permisVal = false;
+        boolean veloVal = false;
+        boolean maillotVal = false;
+
+        Personnage me = null;
+        while(!pickType) {
+
+            System.out.println("Veuillez choisir un type de personnage (disponible: Standard, Hippie ou HommePresse).");
+            String str = pType.nextLine();
+            System.out.println("Vous avez choisi le type : " + str);
+            if(str.equals("Standard") || str.equals("Hippie") || str.equals("HommePresse")) {
+
+                pickType = true;
+                while(!pickPermis) {
+                    System.out.println("Voulez-vous que votre personnage ai le permis ? (oui/non)");
+                    String reponse = pType.nextLine();
+                    if(reponse.equals("oui") || reponse.equals("non")) {
+                        if(reponse.equals("oui")) {
+                            permisVal = true;
+                        }
+                        else {
+                            permisVal = false;
+                        }
+                        pickPermis = true;
+                    }
+                    else {
+                        System.out.println("Erreur: '" + str + "' n'est pas un choix valide.");
+                    }
+                }
+                while(!pickVelo) {
+                    System.out.println("Voulez-vous que votre personnage ai un vélo ? (oui/non)");
+                    String reponse = pType.nextLine();
+                    if(reponse.equals("oui") || reponse.equals("non")) {
+                        if(reponse.equals("oui")) {
+                            veloVal = true;
+                        }
+                        else {
+                            veloVal = false;
+                        }
+                        pickVelo = true;
+                    }
+                    else {
+                        System.out.println("Erreur: '" + str + "' n'est pas un choix valide.");
+                    }
+                }
+
+                while(!pickMaillot) {
+                    System.out.println("Voulez-vous que votre personnage ai un maillot ? (oui/non)");
+                    String reponse = pType.nextLine();
+                    if(reponse.equals("oui") || reponse.equals("non")) {
+                        if(reponse.equals("oui")) {
+                            maillotVal = true;
+                        } else {
+                            maillotVal = false;
+                        }
+                        pickMaillot = true;
+                    } else {
+                        System.out.println("Erreur: '" + str + "' n'est pas un choix valide. ");
+                    }
+                }
+                Class[] type = {Case.class, boolean.class, boolean.class, boolean.class};
+                Object[] obj = {honeyWood.getCase(5, 9), permisVal, veloVal, maillotVal};
+                me = (Personnage) Class.forName("town."+str).getDeclaredConstructor(type).newInstance(obj);
+            } else {
+                System.out.println("Erreur: '" + str + "' n'est pas un choix valide. Rappel des types disponible: Standard, Hippie ou HommePresse");
+            }
+        }
 
         String input;
         Scanner clavier = new Scanner(System.in);
@@ -92,11 +168,13 @@ public class Main {
                     System.out.println("On se déplace toujours à pieds dans un batiment...");
                 }
             }
-            else if(me.seDeplacer(input, honeyWood)) {
-                System.out.println(me);
-                System.out.println(me.getCase());
-
-                showVille(honeyWood, map1, me);
+            else if(Pattern.matches("z|q|s|d", input)){
+                if(me.seDeplacer(input, honeyWood)) {
+                    System.out.println(me);
+                    showVille(honeyWood, map1, me);
+                }else{
+                    System.out.println("Impossible de se déplacer ici");
+                }
             }else{
                 System.out.println("Commande incorrecte !");
                 System.out.println("Commandes : z, q, s, d, velo, voiture, pieds");

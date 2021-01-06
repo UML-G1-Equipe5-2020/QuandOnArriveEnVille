@@ -14,4 +14,13 @@ public class Standard extends Personnage {
         this.satiete = this.maxSatiete;
         this.moral = this.maxMoral;
     }
+
+
+    public boolean seDeplacer(String direction, Ville ville){
+        boolean deplace = super.seDeplacer(direction, ville);
+        if(deplace){
+            this.updateValue("vie", -1);
+        }
+        return deplace;
+    }
 }

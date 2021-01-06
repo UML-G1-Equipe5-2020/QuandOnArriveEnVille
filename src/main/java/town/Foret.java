@@ -23,6 +23,7 @@ public class Foret extends CaseDeDeplacement{
     }
 
     public void suru(Personnage pers){
+        super.suru(pers);
         System.out.println("Loup y es-tu ?");
         switch(getModeDeplacement()){
             case "pieds":
