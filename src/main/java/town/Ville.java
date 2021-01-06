@@ -37,7 +37,6 @@ public class Ville {
         return listeCase[ligne][colonne];
     }
 
-
     public void showCase(int ligne, int colonne){
         System.out.print(this.listeCase[ligne][colonne]);
     }
