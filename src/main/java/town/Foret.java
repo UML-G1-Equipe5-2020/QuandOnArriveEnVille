@@ -7,10 +7,10 @@ public class Foret extends CaseDeDeplacement{
         this.setModeDeplacement("pieds");
     }
 
-    @Override
+
     public void setModeDeplacement(String modeDeplacement) {
         if(modeDeplacement.equals("velo") || modeDeplacement.equals("pieds")) {
-            super.setModeDeplacement(modeDeplacement);
+            super.setModeDeplacement(modeDeplacement, Foret.class);
         }
     }
 
@@ -25,7 +25,7 @@ public class Foret extends CaseDeDeplacement{
     public void suru(Personnage pers){
         super.suru(pers);
         System.out.println("Loup y es-tu ?");
-        switch(getModeDeplacement()){
+        switch(getModeDeplacement((CaseDeDeplacement) pers.casePersonnage)){
             case "pieds":
                 pers.updateValue("hydratation", (int) (-3*pers.getFacteurDePerte()));  // 3 au lieu de 10
                 pers.updateValue("satiete", (int) (-3*pers.getFacteurDePerte()));  // 3 au lieu de 10

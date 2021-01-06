@@ -8,10 +8,9 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
         this.setModeDeplacement("pieds");
     }
 
-    @Override
     public void setModeDeplacement(String modeDeplacement) {
         if(modeDeplacement.equals("velo") || modeDeplacement.equals("pieds")) {
-            super.setModeDeplacement(modeDeplacement);
+            super.setModeDeplacement(modeDeplacement, this.getClass());
         }
     }
 
@@ -26,7 +25,7 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
 
     public void suru(Personnage pers){
         super.suru(pers);
-        switch(getModeDeplacement()){
+        switch(getModeDeplacement(this)){
             case "pieds":
                 System.out.println("42.332 km à pieds, ça use, ça use");
                 pers.updateValue("hydratation", (int) (-3*pers.getFacteurDePerte()));  // 3 au lieu de 10
