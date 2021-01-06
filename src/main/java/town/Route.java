@@ -4,19 +4,19 @@ public class Route extends CaseDeDeplacement implements Piege{
 
     public Route(int ligne, int colonne) {
         super(ligne, colonne);
-        this.setModeDeplacement("Voiture");
+        this.setModeDeplacement("voiture");
     }
 
     @Override
     public void setModeDeplacement(String modeDeplacement) {
-        if(modeDeplacement.equals("Voiture") || modeDeplacement.equals("Velo")) {
+        if(modeDeplacement.equals("voiture") || modeDeplacement.equals("velo")) {
             super.setModeDeplacement(modeDeplacement);
         }
     }
 
 
     public boolean changeModeDeplacement(Personnage pers, String modeDeplacement) {
-        if(modeDeplacement.equals("Voiture") || modeDeplacement.equals("Velo")) {
+        if(modeDeplacement.equals("voiture") || modeDeplacement.equals("velo")) {
             return super.changeModeDeplacement(pers, modeDeplacement);
         }
         return false;
@@ -24,7 +24,7 @@ public class Route extends CaseDeDeplacement implements Piege{
 
     public void suru(Personnage pers){
         switch(getModeDeplacement()){
-            case "Voiture":
+            case "voiture":
                 System.out.println("Vrooom");
                 pers.updateValue("moral", -2);
                 if (Math.random() <= 0.02){
@@ -35,7 +35,7 @@ public class Route extends CaseDeDeplacement implements Piege{
                     pers.incrementerArrestation();
                 }
                 break;
-            case "Velo":
+            case "velo":
                 System.out.println("DingDing !");
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
@@ -66,7 +66,7 @@ public class Route extends CaseDeDeplacement implements Piege{
 
     @Override
     public boolean autoriserDeplacement(Personnage p){
-        if(this.getModeDeplacement() == "Voiture"){
+        if(this.getModeDeplacement() == "voiture"){
             System.out.println("en voiture");
             if(p.getPermis()){
                 return true;
@@ -76,12 +76,12 @@ public class Route extends CaseDeDeplacement implements Piege{
                 }
             }
             return false;
-        }else if(getModeDeplacement() == "Velo"){
-            System.out.println("en voiture");
+        }else if(getModeDeplacement() == "velo"){
+            System.out.println("en vélo");
             if(p.getVelo()){
                 return true;
             }else{
-                if(this.changeModeDeplacement(p, "Voiture")){
+                if(this.changeModeDeplacement(p, "velo")){
                     return true;
                 }
             }

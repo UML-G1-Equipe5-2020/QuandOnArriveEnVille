@@ -147,28 +147,28 @@ public abstract class Personnage {
         int currentColonne = this.casePersonnage.getColonne();
         System.out.println("L: " + currentLigne + "C: " + currentColonne);
         switch (direction){
-            case "right":
+            case "d":
                 if(currentColonne < ville.getLengthOfColonne()-1){
                     this.setCase(ville.getCase(currentLigne, currentColonne+1));
                     this.casePersonnage.suru(this);
                     return true;
                 }
                 break;
-            case "up":
+            case "z":
                 if(currentLigne > 0){
                     this.setCase(ville.getCase(currentLigne-1, currentColonne));
                     this.casePersonnage.suru(this);
                     return true;
                 }
                 break;
-            case "left":
+            case "q":
                 if(currentColonne > 0){
                     this.setCase(ville.getCase(currentLigne, currentColonne-1));
                     this.casePersonnage.suru(this);
                     return true;
                 }
                 break;
-            case "down":
+            case "s":
                 if(currentLigne < ville.getLengthOfLigne()-1){
                     this.setCase(ville.getCase(currentLigne+1, currentColonne));
                     this.casePersonnage.suru(this);

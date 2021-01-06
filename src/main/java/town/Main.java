@@ -74,13 +74,13 @@ public class Main {
         showVille(honeyWood, map1, me);
         System.out.println(me);
 
-        System.out.println("Commandes : z, q, s, d, Velo, Voiture, Pieds");
+        System.out.println("Commandes : z, q, s, d, velo, voiture, pieds");
         System.out.println("Début simulation");
 
         while (true){
             System.out.println("Saisissez une commande : ");
             input = clavier.nextLine();
-            if(Pattern.matches("Velo|Voiture|Pied", input)){
+            if(Pattern.matches("velo|voiture|pieds", input)){
                 try {
                     if (!((CaseDeDeplacement) me.casePersonnage).changeModeDeplacement(me, input)) {
                         System.out.println("Mode de déplacement indisponible pour cette case");
@@ -98,7 +98,7 @@ public class Main {
                 showVille(honeyWood, map1, me);
             }else{
                 System.out.println("Commande incorrecte !");
-                System.out.println("Commandes : z, q, s, d, Velo, Voiture, Pieds");
+                System.out.println("Commandes : z, q, s, d, velo, voiture, pieds");
             }
         }
 

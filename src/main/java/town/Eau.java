@@ -4,7 +4,7 @@ public class Eau extends CaseDeDeplacement{
 
     public Eau(int ligne, int colonne) {
         super(ligne, colonne);
-        this.setModeDeplacement("Pied");
+        this.setModeDeplacement("pieds");
     }
 
     public void suru(Personnage pers){

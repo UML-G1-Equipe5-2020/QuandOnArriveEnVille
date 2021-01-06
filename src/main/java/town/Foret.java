@@ -4,19 +4,19 @@ public class Foret extends CaseDeDeplacement{
 
     public Foret(int ligne, int colonne) {
         super(ligne, colonne);
-        this.setModeDeplacement("Pied");
+        this.setModeDeplacement("pieds");
     }
 
     @Override
     public void setModeDeplacement(String modeDeplacement) {
-        if(modeDeplacement.equals("Velo") || modeDeplacement.equals("Pied")) {
+        if(modeDeplacement.equals("velo") || modeDeplacement.equals("pieds")) {
             super.setModeDeplacement(modeDeplacement);
         }
     }
 
 
     public boolean changeModeDeplacement(Personnage pers, String modeDeplacement) {
-        if(modeDeplacement.equals("Velo") || modeDeplacement.equals("Pied")) {
+        if(modeDeplacement.equals("velo") || modeDeplacement.equals("pieds")) {
             return super.changeModeDeplacement(pers, modeDeplacement);
         }
         return false;
@@ -25,11 +25,11 @@ public class Foret extends CaseDeDeplacement{
     public void suru(Personnage pers){
         System.out.println("Loup y es-tu ?");
         switch(getModeDeplacement()){
-            case "Pied":
+            case "pieds":
                 pers.updateValue("hydratation", -10);
                 pers.updateValue("satiete", -10);
                 break;
-            case "Velo":
+            case "velo":
                 pers.updateValue("hydratation", -5);
                 pers.updateValue("satiete", -5);
                 if (Math.random() <= 0.002){
