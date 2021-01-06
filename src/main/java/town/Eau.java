@@ -9,8 +9,8 @@ public class Eau extends CaseDeDeplacement{
 
     public void suru(Personnage pers){
         System.out.println("Tous en maillot de bain !");
-        pers.updateValue("hydratation", (int) (-10*pers.getFacteurDePerte()));
-        pers.updateValue("satiete", (int) (-10*pers.getFacteurDePerte()));
+        pers.updateValue("hydratation", (int) (-3*pers.getFacteurDePerte()));  // 3 au lieu de 10
+        pers.updateValue("satiete", (int) (-3*pers.getFacteurDePerte()));  // 3 au lieu de 10
     }
 
     @Override
