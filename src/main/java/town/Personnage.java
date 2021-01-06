@@ -7,6 +7,22 @@ public abstract class Personnage {
     protected boolean velo;
     protected boolean maillot;
 
+    public int getVie() {
+        return vie;
+    }
+
+    public int getHydratation() {
+        return hydratation;
+    }
+
+    public int getSatiete() {
+        return satiete;
+    }
+
+    public int getMoral() {
+        return moral;
+    }
+
     //Variables propre a l'instance du personnage a l'instant T
     protected int vie;
     protected int hydratation;

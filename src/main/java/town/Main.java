@@ -178,7 +178,7 @@ public class Main {
         System.out.println("Commandes : z, q, s, d, velo, voiture, pieds");
         System.out.println("Début simulation");
 
-        while (true){
+        while (me.getVie() != 0 && me.getHydratation() != 0  && me.getSatiete() != 0 && me.getMoral() != 0){
             System.out.println("Saisissez une commande : ");
             input = clavier.nextLine();
             if(Pattern.matches("velo|voiture|pieds", input)){
@@ -205,8 +205,9 @@ public class Main {
             }
         }
 
-
-
+        System.out.println("Ohhhh.. Vous êtes mort");
+        System.out.println("Voici votre etat actuel:");
+        System.out.println(me);
 
 
     }
