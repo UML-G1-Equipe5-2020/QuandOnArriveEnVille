@@ -7,6 +7,7 @@ public class Hippie extends Personnage {
         this.maxHydratation = 50;
         this.maxSatiete = 50;
         this.maxMoral = 100;
+        this.facteurDePerte = 2;
 
         this.vie = this.maxVie;
         this.hydratation = this.maxHydratation;

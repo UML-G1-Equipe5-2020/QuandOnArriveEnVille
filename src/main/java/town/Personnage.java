@@ -5,8 +5,6 @@ public abstract class Personnage {
     //Moyen de deplacement
     protected boolean permis;
     protected boolean velo;
-
-
     protected boolean maillot;
 
     //Variables propre a l'instance du personnage a l'instant T
@@ -22,6 +20,9 @@ public abstract class Personnage {
     protected int maxMoral;
     protected int maxChance = 100;
 
+
+    protected int facteurDePerte;
+
     //Position du personnage à l'instant T
     protected Case casePersonnage;
 
@@ -36,6 +37,10 @@ public abstract class Personnage {
         this.permis = permis;
         this.velo = velo;
         this.maillot = maillot;
+    }
+
+    public int getFacteurDePerte() {
+        return facteurDePerte;
     }
 
     public boolean getMaillot() {
@@ -145,7 +150,6 @@ public abstract class Personnage {
     public boolean seDeplacer(String direction, Ville ville){
         int currentLigne = this.casePersonnage.getLigne();
         int currentColonne = this.casePersonnage.getColonne();
-        System.out.println("L: " + currentLigne + "C: " + currentColonne);
         switch (direction){
             case "d":
                 if(currentColonne < ville.getLengthOfColonne()-1){

@@ -7,6 +7,7 @@ public class Standard extends Personnage {
         this.maxHydratation = 75;
         this.maxSatiete = 75;
         this.maxMoral = 75;
+        this.facteurDePerte = 1;
 
         this.vie = this.maxVie;
         this.hydratation = this.maxHydratation;

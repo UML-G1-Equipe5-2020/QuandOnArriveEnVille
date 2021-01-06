@@ -26,7 +26,7 @@ public class Route extends CaseDeDeplacement implements Piege{
         switch(getModeDeplacement()){
             case "voiture":
                 System.out.println("Vrooom");
-                pers.updateValue("moral", -2);
+                pers.updateValue("moral", (int) (-2*pers.getFacteurDePerte()));
                 if (Math.random() <= 0.02){
                     pers.mourir();
                 }
@@ -37,8 +37,8 @@ public class Route extends CaseDeDeplacement implements Piege{
                 break;
             case "velo":
                 System.out.println("DingDing !");
-                pers.updateValue("hydratation", -5);
-                pers.updateValue("satiete", -5);
+                pers.updateValue("hydratation", (int) (-5*pers.getFacteurDePerte()));
+                pers.updateValue("satiete", (int) (-5*pers.getFacteurDePerte()));
                 if (Math.random() <= 0.005){
                     System.out.println("PinPon PinPon, vous vous êtes fait écrasé. Vous ferez mieux la prochaine fois");
                     pers.mourir();

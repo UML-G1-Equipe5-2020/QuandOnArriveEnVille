@@ -9,6 +9,7 @@ public class HommePresse extends Personnage {
         this.maxHydratation = 75;
         this.maxSatiete = 75;
         this.maxMoral = 50;
+        this.facteurDePerte = 0;
 
         this.vie = this.maxVie;
         this.hydratation = this.maxHydratation;

@@ -28,13 +28,13 @@ public class Trottoir extends CaseDeDeplacement implements Piege{
         switch(getModeDeplacement()){
             case "pieds":
                 System.out.println("42.332 km à pieds, ça use, ça use");
-                pers.updateValue("hydratation", -10);
-                pers.updateValue("satiete", -10);
+                pers.updateValue("hydratation", (int) (-10*pers.getFacteurDePerte()));
+                pers.updateValue("satiete", (int) (-10*pers.getFacteurDePerte()));
                 break;
             case "velo":
                 System.out.println("DingDing");
-                pers.updateValue("hydratation", -5);
-                pers.updateValue("satiete", -5);
+                pers.updateValue("hydratation", (int) (-5*pers.getFacteurDePerte()));
+                pers.updateValue("satiete", (int) (-5*pers.getFacteurDePerte()));
                 if (Math.random() <= 0.005){
 
                     pers.mourir();

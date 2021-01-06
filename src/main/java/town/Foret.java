@@ -26,12 +26,12 @@ public class Foret extends CaseDeDeplacement{
         System.out.println("Loup y es-tu ?");
         switch(getModeDeplacement()){
             case "pieds":
-                pers.updateValue("hydratation", -10);
-                pers.updateValue("satiete", -10);
+                pers.updateValue("hydratation", (int) (-10*pers.getFacteurDePerte()));
+                pers.updateValue("satiete", (int) (-10*pers.getFacteurDePerte()));
                 break;
             case "velo":
-                pers.updateValue("hydratation", -5);
-                pers.updateValue("satiete", -5);
+                pers.updateValue("hydratation", (int) (-5*pers.getFacteurDePerte()));
+                pers.updateValue("satiete", (int) (-5*pers.getFacteurDePerte()));
                 if (Math.random() <= 0.002){
                     pers.mourir();
                 }

@@ -65,8 +65,8 @@ public class Main {
             }
         }
 
-        Standard me = new Standard(honeyWood.getCase(5 , 9), true, true, true);
-        //Hippie me = new Hippie(honeyWood.getCase(5,9), true, true, true);
+        //Standard me = new Standard(honeyWood.getCase(5 , 9), true, true, true);
+        Hippie me = new Hippie(honeyWood.getCase(5,9), true, true, true);
 
         String input;
         Scanner clavier = new Scanner(System.in);
