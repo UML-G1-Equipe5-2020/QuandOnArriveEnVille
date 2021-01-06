@@ -115,6 +115,7 @@ public class Main {
                 while(!pickPermis) {
                     System.out.println("Voulez-vous que votre personnage ai le permis ? (oui/non)");
                     String reponse = pType.nextLine();
+
                     if(reponse.equals("oui") || reponse.equals("non")) {
                         if(reponse.equals("oui")) {
                             permisVal = true;
@@ -125,7 +126,7 @@ public class Main {
                         pickPermis = true;
                     }
                     else {
-                        System.out.println("Erreur: '" + str + "' n'est pas un choix valide.");
+                        System.out.println("Erreur: '" + reponse + "' n'est pas un choix valide.");
                     }
                 }
                 while(!pickVelo) {
@@ -141,7 +142,7 @@ public class Main {
                         pickVelo = true;
                     }
                     else {
-                        System.out.println("Erreur: '" + str + "' n'est pas un choix valide.");
+                        System.out.println("Erreur: '" + reponse + "' n'est pas un choix valide.");
                     }
                 }
 
@@ -156,7 +157,7 @@ public class Main {
                         }
                         pickMaillot = true;
                     } else {
-                        System.out.println("Erreur: '" + str + "' n'est pas un choix valide. ");
+                        System.out.println("Erreur: '" + reponse + "' n'est pas un choix valide. ");
                     }
                 }
                 Class[] type = {Case.class, boolean.class, boolean.class, boolean.class};
