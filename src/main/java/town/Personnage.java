@@ -202,6 +202,10 @@ public abstract class Personnage {
                 return false; //sinon, retourne false qui empeche le déplacement du personnage.
         }
         if(targetCase != null && targetCase.autoriserDeplacement(this)) { //si il y a une case cible pour le déplacement et qu'il est possible de s'y déplacer
+            if (Math.random() <= 0.05){
+                System.out.println("Kof Kof ! Arggh vous êtes malade (-10 points de vie)");
+                this.updateValue("vie", -10);
+            }
             this.setCase(targetCase); //le personnage se déplace sur cette case
             this.casePersonnage.suru(this); //réalise l'action de la case sur laquelle se situe le personnage (varie en fonction du type de la case)
             return true;
