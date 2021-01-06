@@ -134,42 +134,44 @@ public class Main {
         boolean maillotVal = false;
 
         Personnage me = null;
-        while(!pickType) {
 
-            System.out.println("Veuillez choisir un type de personnage (disponible: Standard, Hippie ou HommePresse).");
-            String str = pType.nextLine();
-            System.out.println("Vous avez choisi le type : " + str);
-            if(str.equals("Standard") || str.equals("Hippie") || str.equals("HommePresse")) {
+        //Questionnaire pour instancier le personnage désiré avec les attributs choisis
+        while(!pickType) { //tant qu'un choix correct n'est pas fait
 
-                pickType = true;
-                while(!pickPermis) {
-                    System.out.println("Voulez-vous que votre personnage ait le permis ? (oui/non)");
-                    String reponse = pType.nextLine();
+            System.out.println("Veuillez choisir un type de personnage (disponible: Standard, Hippie ou HommePresse)."); //on demande a l'utilisateur de chosir le type de personnage qu'il souhaite jouer
+            String str = pType.nextLine(); //on récupère la réponse de l'utilisateur
+            System.out.println("Vous avez choisi le type : " + str); //on affiche son choix
+            if(str.equals("Standard") || str.equals("Hippie") || str.equals("HommePresse")) { //on vérifie si le choix est valide
 
-                    if(reponse.equals("oui") || reponse.equals("non")) {
-                        if(reponse.equals("oui")) {
-                            permisVal = true;
+                pickType = true; //on met a true pour que la boucle s'arrête
+                while(!pickPermis) { //on passe a la question suivante, avec une boucle qui continue tant qu'un choix correct n'est pas fait
+                    System.out.println("Voulez-vous que votre personnage ait le permis ? (oui/non)"); //on pose la question
+                    String reponse = pType.nextLine(); //on récupère la réponse de l'utilisateur
+
+                    if(reponse.equals("oui") || reponse.equals("non")) { //on vérifie qu'il s'agit d'une réponse valide.
+                        if(reponse.equals("oui")) { //si la réponse est oui
+                            permisVal = true; //on met la valeur du permis pour le personnage a true: il aura le permis
                         }
                         else {
-                            permisVal = false;
+                            permisVal = false; //on met la valeur du permis pour le personnage a false: il n'aura pas le permis
                         }
-                        pickPermis = true;
+                        pickPermis = true; //on met a true pour que la boucle s'arrête
                     }
                     else {
-                        System.out.println("Erreur: '" + reponse + "' n'est pas un choix valide.");
+                        System.out.println("Erreur: '" + reponse + "' n'est pas un choix valide."); //on affiche un message pour dire que la réponse saisie n'est pas parmis celles attendues
                     }
                 }
                 while(!pickVelo) {
                     System.out.println("Voulez-vous que votre personnage ait un vélo ? (oui/non)");
                     String reponse = pType.nextLine();
-                    if(reponse.equals("oui") || reponse.equals("non")) {
-                        if(reponse.equals("oui")) {
-                            veloVal = true;
+                    if(reponse.equals("oui") || reponse.equals("non")) { //on vérifie si la réponse est valide
+                        if(reponse.equals("oui")) { //si le choix de l'utilisateur est oui:
+                            veloVal = true; //on met la valeur du vélo pour le personnage a true: il aura un vélo
                         }
-                        else {
-                            veloVal = false;
+                        else { //sinon
+                            veloVal = false; //on met la valeur du vélo pour le personnage a false: il n'aura pas de vélo
                         }
-                        pickVelo = true;
+                        pickVelo = true; //on met a true pour que la boucle s'arrête
                     }
                     else {
                         System.out.println("Erreur: '" + reponse + "' n'est pas un choix valide.");
@@ -179,23 +181,22 @@ public class Main {
                 while(!pickMaillot) {
                     System.out.println("Voulez-vous que votre personnage ait un maillot ? (oui/non)");
                     String reponse = pType.nextLine();
-                    if(reponse.equals("oui") || reponse.equals("non")) {
-                        if(reponse.equals("oui")) {
-                            maillotVal = true;
-                        } else {
-                            maillotVal = false;
+                    if(reponse.equals("oui") || reponse.equals("non")) { //on vérifie si la réponse est valide
+                        if(reponse.equals("oui")) { //si le choix de l'utilisateur est oui:
+                            maillotVal = true; //on met la valeur du maillot pour le personnage a true: il aura un maillot sur lui
+                        } else { //sinon
+                            maillotVal = false; //on met la valeur du maillot pour le personnage a false: il n'aura pas de maillot
                         }
-                        pickMaillot = true;
+                        pickMaillot = true; //on met a true pour que la boucle s'arrête
                     } else {
                         System.out.println("Erreur: '" + reponse + "' n'est pas un choix valide. ");
                     }
                 }
-                Class[] type = {Case.class, boolean.class, boolean.class, boolean.class};
-                //Object[] obj = {honeyWood.getCase(posHouse.get(mapChoix)[0], posHouse.get(mapChoix)[1]), permisVal, veloVal, maillotVal};
-                Object[] obj = {honeyWood.getCase(ligneHouse, colonneHouse), permisVal, veloVal, maillotVal};
-                me = (Personnage) Class.forName("town."+str).getDeclaredConstructor(type).newInstance(obj);
+                Class[] type = {Case.class, boolean.class, boolean.class, boolean.class}; //on créer une liste de type utilisé en argument du constructeur de personnage
+                Object[] obj = {honeyWood.getCase(ligneHouse, colonneHouse), permisVal, veloVal, maillotVal}; //on lie les attributs au type dans le tableau type
+                me = (Personnage) Class.forName("town."+str).getDeclaredConstructor(type).newInstance(obj); //on instancie le type de personnage avec les attributs choisis lors du questionnaire
             } else {
-                System.out.println("Erreur: '" + str + "' n'est pas un choix valide. Rappel des types disponible: Standard, Hippie ou HommePresse");
+                System.out.println("Erreur: '" + str + "' n'est pas un choix valide. Rappel des types disponible: Standard, Hippie ou HommePresse"); //on affiche un message pour dire que la réponse saisie n'est pas parmis celles attendues
             }
         }
 
