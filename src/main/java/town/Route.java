@@ -66,7 +66,7 @@ public class Route extends CaseDeDeplacement implements Piege{
 
     @Override
     public boolean autoriserDeplacement(Personnage p){
-        if(this.getModeDeplacement(this) == "voiture"){
+        if(this.getModeDeplacement(this).equals("voiture")){
             if(p.getPermis() && p.getClass() != town.Hippie.class){
                 return true;
             }else{
@@ -75,7 +75,7 @@ public class Route extends CaseDeDeplacement implements Piege{
                 }
             }
             return false;
-        }else if(getModeDeplacement(this) == "velo"){
+        }else if(getModeDeplacement(this).equals("velo")){
             if(p.getVelo()){
                 return true;
             }else{

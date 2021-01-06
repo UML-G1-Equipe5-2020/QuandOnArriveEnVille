@@ -3,16 +3,17 @@ package town;
 import java.util.HashMap;
 
 public abstract class CaseDeDeplacement extends Case{
-    //private String modeDeplacement;
-    private HashMap<Class, String> modeDeplacement = new HashMap<>();
+    private static HashMap<Class, String> modeDeplacement = new HashMap<>();  // fait correspondre un mode de déplacement à chaque type de case de déplacement
 
     public CaseDeDeplacement(int ligne, int colonne){
         super(ligne, colonne);
+        // force un mode de deplacement par defaut pour Foret, Route et Trottoir
         this.modeDeplacement.put(Foret.class, "pieds");
         this.modeDeplacement.put(Route.class, "voiture");
         this.modeDeplacement.put(Trottoir.class, "pieds");
     }
 
+    // change
     public void setModeDeplacement(String modeDeplacement, Class theCase) {
         if(modeDeplacement.equals("voiture") || modeDeplacement.equals("velo") || modeDeplacement.equals("pieds")) {
             this.modeDeplacement.replace(theCase, modeDeplacement);
