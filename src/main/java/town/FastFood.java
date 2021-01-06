@@ -15,6 +15,8 @@ public class FastFood extends Batiment{
     public void suru(Personnage p)
     {
         System.out.println("Miam miam ?");
+
+        //On augmente ou diminue les valeurs du personnage
         p.updateValue("satiete", 25);
         p.updateValue("hydratation", 10);
         p.updateValue("moral", 10);
