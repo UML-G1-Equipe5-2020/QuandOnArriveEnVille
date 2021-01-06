@@ -1,5 +1,6 @@
 package town;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -41,6 +42,13 @@ public class Main {
         ShortToFullName.put("UN", "Universite");
         ShortToFullName.put("XX", "CaseGrisee");
 
+        //association nom de map -> map
+        HashMap<String, String[][]> mapCatalogue = new HashMap<String, String[][]>();
+
+        //position de la maison par map
+        HashMap<String, int[]> posHouse= new HashMap<String,int[]>();
+
+
         String[][] map1 = { {"FO", "BA", "FO", "FO", "FO", "FO", "FO", "FO", "FO", "EA"},
                             {"TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "EA"},
                             {"TR", "XX", "XX", "XX", "RO", "TR", "RO", "RO", "TR", "EA"},
@@ -51,6 +59,11 @@ public class Main {
                             {"FO", "TR", "RO", "RO", "RO", "TR", "TR", "RO", "TR", "EA"},
                             {"FO", "TR", "RO", "TR", "TR", "XX", "TR", "RO", "TR", "EA"},
                             {"FO", "TR", "TR", "TR", "FA", "FO", "TR", "TR", "TR", "EA"}};
+
+        mapCatalogue.put("map1", map1);
+        int[] pos1 = {5, 9};
+        posHouse.put("map1", pos1);
+
 
         String[][] map2 = { {"FO", "FO", "FO", "FO", "EA", "EA", "FO", "FO", "FO", "MA"},
                             {"FO", "TR", "FO", "FO", "FO", "FO", "FO", "FO", "XX", "XX"},
@@ -63,6 +76,11 @@ public class Main {
                             {"BI", "TR", "RO", "TR", "FO", "FO", "FO", "FO", "RO", "RO"},
                             {"XX", "XX", "XX", "XX", "EA", "EA", "EA", "FO", "FO", "UN"}};
 
+        mapCatalogue.put("map2", map2);
+        int[] pos2 = {0, 9};
+        posHouse.put("map2", pos2);
+
+
         String[][] map3 = { {"TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR", "TR"},
                             {"TR", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "TR"},
                             {"MA", "XX", "EA", "EA", "EA", "FO", "EA", "UN", "XX", "TR"},
@@ -74,17 +92,25 @@ public class Main {
                             {"FO", "FO", "XX", "TR", "XX", "XX", "XX", "XX", "XX", "TR"},
                             {"BA", "BI", "XX", "TR", "TR", "TR", "TR", "TR", "TR", "TR"}};
 
+        mapCatalogue.put("map3", map3);
+        int[] pos3 = {2, 0};
+        posHouse.put("map3", pos3);
 
-        /*
-        honeyWood.addCase(0, 0, "Bar");
-        honeyWood.addCase(0, 1, "Trottoir");
-        honeyWood.addCase(0, 2, "Maison");
 
-        */
+        Scanner mapChoixScanner = new Scanner(System.in);
+
+        String mapChoix;
+
+        System.out.println("Quelle map voulez-vous charger ? (map1, map2, map3) :");
+        while (!Pattern.matches("map1|map2|map3", mapChoix = mapChoixScanner.nextLine())){
+            System.out.println("Map inexistante !");
+            System.out.println("Quelle map voulez-vous charger ? (map1, map2, map3) :");
+        }
+
 
         for(int i=0; i < map1.length; i++){
             for(int j=0; j < map1[0].length; j++){
-                honeyWood.addCase(i, j, ShortToFullName.get(map1[i][j]));
+                honeyWood.addCase(i, j, ShortToFullName.get(mapCatalogue.get(mapChoix)[i][j]));
             }
         }
 
@@ -161,7 +187,7 @@ public class Main {
                     }
                 }
                 Class[] type = {Case.class, boolean.class, boolean.class, boolean.class};
-                Object[] obj = {honeyWood.getCase(5, 9), permisVal, veloVal, maillotVal};
+                Object[] obj = {honeyWood.getCase(posHouse.get(mapChoix)[0], posHouse.get(mapChoix)[1]), permisVal, veloVal, maillotVal};
                 me = (Personnage) Class.forName("town."+str).getDeclaredConstructor(type).newInstance(obj);
             } else {
                 System.out.println("Erreur: '" + str + "' n'est pas un choix valide. Rappel des types disponible: Standard, Hippie ou HommePresse");

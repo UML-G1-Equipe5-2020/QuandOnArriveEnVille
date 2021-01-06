@@ -201,17 +201,13 @@ public abstract class Personnage {
 
     @Override
     public String toString() {
-        return "Personnage{" +
-                "permis=" + permis +
-                ", velo=" + velo +
-                ", maillot=" + maillot +
-                ", vie=" + vie +
-                ", hydratation=" + hydratation +
-                ", satiete=" + satiete +
-                ", moral=" + moral +
-                ", chanceDiplome=" + chanceDiplome +
-                ", nbDiplome=" + nbDiplome +
-                ", nbArrestation=" + nbArrestation +
-                '}';
+        return "Vous: " +
+                ", vie:" + vie +
+                ", soif:" + hydratation +
+                ", faim:" + satiete +
+                ", moral:" + moral +
+                ", chanceDiplome:" + chanceDiplome +
+                ", nbDiplome:" + nbDiplome +
+                ", nbArrestation:" + nbArrestation;
     }
 }
