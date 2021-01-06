@@ -74,9 +74,11 @@ public class Main {
         showVille(honeyWood, map1, me);
         System.out.println(me);
 
+        System.out.println("Commandes : z, q, s, d, Velo, Voiture, Pieds");
         System.out.println("Début simulation");
 
         while (true){
+            System.out.println("Saisissez une commande : ");
             input = clavier.nextLine();
             if(Pattern.matches("Velo|Voiture|Pied", input)){
                 try {
@@ -96,6 +98,7 @@ public class Main {
                 showVille(honeyWood, map1, me);
             }else{
                 System.out.println("Commande incorrecte !");
+                System.out.println("Commandes : z, q, s, d, Velo, Voiture, Pieds");
             }
         }
 
